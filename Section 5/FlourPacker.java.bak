@@ -1,0 +1,40 @@
+public class FlourPacker {
+    // write your code here
+    
+    public static boolean canPack(int bigCount, int smallCount, int goal){
+        
+        if(bigCount <0 || smallCount<0 || goal<0){
+            return false;
+        }
+        
+        int totalKilos=bigCount*5 + smallCount;
+        
+        if(totalKilos < goal){
+            return false;
+        }
+        else if(totalKilos == goal){
+            return true;
+        }
+        else{
+            int bg=bigCount*5;
+            if(bg+smallCount == goal){
+                return true;
+            }
+            else if(bg>=goal && bg%goal ==0 || (bg>=goal  && goal%5<=smallCount)){
+                return true;
+            }
+            else if(smallCount>goal){
+                return true;
+            }
+            else if(bg + smallCount > goal && goal%bg <=smallCount){
+                return true;
+            }
+            else{
+                return false;
+            }
+                
+            }
+        }
+        
+    //     return false;
+     }

@@ -1,0 +1,30 @@
+public class LargestPrime {
+    // write your code here
+    int div;
+    
+    public static int getLargestPrime(int n){
+        if(n<1){
+            return -1;
+        }
+        else{
+            int maxPrime=-1;
+            //if number divisible by 2, break it down until it is not divisible by 2
+            while(n%2==0){
+                maxPrime=2;
+                n=n/2;
+            }
+            //iterate for odd i, check if n divisble by i, make it a maxPrime and divide the number by i to iterate for next prime divisible number
+            //eg : if n =217, i will iterate till 7 then maxPrime=7 then n = 217/7 =31. find the prime factor of 31 then
+            for(int i=3;i<Math.sqrt(n);i+=2){
+                while(n%i==0){
+                    maxPrime=i;
+                    n=n/i;
+                }
+            }
+            if(n>2)
+                maxPrime=n;
+            return maxPrime;
+        }
+        
+    }
+}
