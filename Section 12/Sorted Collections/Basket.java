@@ -19,7 +19,7 @@ public class Basket {
         if(item!=null && quantity>0){
             int inBasket =  list.getOrDefault(item,0);
             list.put(item,inBasket + quantity);
-            return item.getQuantityStock();
+            return item.availableQuantity();
         }
         return 0;
     }

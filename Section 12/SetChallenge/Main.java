@@ -1,4 +1,4 @@
-//****************SET CHALLENGE MAIN***********************
+//********************SET CHALLENGE MAIN**********************
 
 import java.util.HashMap;
 import java.util.HashSet;

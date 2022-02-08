@@ -1,5 +1,4 @@
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -20,9 +19,8 @@ public class StockList {
         if(inStock!=item){ //meaning item exits in stockList
             inStock.adjustStock(item.availableQuantity());
         }
-
         list.put(item.getName(),item);
-        return item.getQuantityStock();
+        return item.availableQuantity();
     }
     }
 
@@ -75,9 +73,9 @@ public class StockList {
         for (Map.Entry<String, StockItem> item : list.entrySet()) {
             StockItem stockItem = item.getValue();
 
-            double itemValue = stockItem.getPrice() * stockItem.getQuantityStock();
+            double itemValue = stockItem.getPrice() * stockItem.availableQuantity();
 
-            s = s + stockItem + ". There are " + stockItem.getQuantityStock() + " in stock. Value of items: ";
+            s = s + stockItem + ". There are " + stockItem.availableQuantity() + " in stock. Value of items: ";
             s = s + String.format("%.2f",itemValue) + "\n";
             totalCost += itemValue;
         }
